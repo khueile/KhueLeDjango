@@ -5,11 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-    <li>Name: {{ productdetail.name }}</li>
-    <li>Description: {{ productdetail.description }}</li>
-    <li>Date Added: {{ productdetail.date_added }}</li>
-    <li>Count: {{ productdetail.count }}</li>
-    <li>Location: {{ productdetail.location }}</li>
-
+    <li>Name: {{ product.name }}</li>
+    <li>Description: {{ product.description }}</li>
+    <li>Date Added: {{ product.date_added }}</li>
+    <li>Count: {{ product.count }}</li>
+    <li>Location: {{ product.location }}</li>
+    <a href="{% url 'products:update_product' product.id %}">
+        update
+    </a>
+    <a href="{% url 'products:delete_product' product.id %}">
+        delete
+    </a>
 </body>
 </html>

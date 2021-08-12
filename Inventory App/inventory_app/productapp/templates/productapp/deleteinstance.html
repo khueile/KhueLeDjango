@@ -5,16 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="post" >
-
+    <form method="POST">
+        <!-- Security token by Django -->
         {% csrf_token %}
-        {{ productform }}
-        <button type="submit">Save</button>
+        Are you want to delete this item ?
         <a href="{% url 'productapp:list_products' %}">
         Cancel
         </a>
+        <input type="submit" value="Yes" />
+
     </form>
-
-
 </body>
 </html>
