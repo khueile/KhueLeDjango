@@ -39,3 +39,19 @@ def update_product(request,product_id):
         else:
             return render(request, 'productapp/update.html',{'productform':product_form})
 
+def delete_product(request, product_id):
+    # dictionary for initial data with
+    # field names as keys
+    context = {}
+
+    # fetch the object related to passed id
+    instance = get_object_or_404(product, pk=product_id)
+
+    if request.method == "POST":
+        # delete object
+        instance.delete()
+        # after deleting redirect to
+        # home page
+        return HttpResponseRedirect(reverse('products:list_products'))
+
+    return render(request, "productapp/deleteinstance.html", context)
