@@ -7,7 +7,7 @@
 <body>
     <form method="post" action="{% url 'products:add_product' %}">
         {% csrf_token %}
-        {{ productform }}
+        {{ form }}
         <button type="submit">Save</button>
     </form>
 </body>

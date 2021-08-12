@@ -1,5 +1,4 @@
 from django.urls import path
-
 from productapp.views import list_products, product_detail,add_product,update_product, delete_product
 
 app_name='productapp'
