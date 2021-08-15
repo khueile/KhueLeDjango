@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '../productapp_base.html' %}
+
+{% block title %}Product List{% endblock title %}
+{% block content %}
+    {% if user %}<a href="{% url 'products:add_product' %}">Add new product</a>{% endif %}
     {% if productkeys %}
+        <table>
         {% for product in productkeys %}
-            <li>
+            <tr><td>&nbsp;&nbsp;&nbsp;</td><td>
                 <a href="{% url 'products:product_detail' product.id %}">
                     {{ product.name }}
                 </a>
-            </li>
-
+            </td>
         {% endfor %}
+        </table>
+    {% else %}
+        <p>No products are available.</p>
     {% endif %}
-</body>
-</html>
+
+
+{% endblock content %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '../productapp_base.html' %}
+
+{% block title %}Product Detail{% endblock title %}
+{% block content %}
     <li>Name: {{ product.name }}</li>
     <li>Description: {{ product.description }}</li>
     <li>Date Added: {{ product.date_added }}</li>
@@ -16,5 +13,4 @@
     <a href="{% url 'products:delete_product' product.id %}">
         delete
     </a>
-</body>
-</html>
+{% endblock content %}

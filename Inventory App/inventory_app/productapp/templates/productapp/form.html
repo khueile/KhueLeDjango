@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '../productapp_base.html' %}
+
+{% block title %}Product Detail{% endblock title %}
+{% block content %}
     <form method="post" action="{% url 'products:add_product' %}">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Save</button>
     </form>
-</body>
-</html>
+{% endblock content %}

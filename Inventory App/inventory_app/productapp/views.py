@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from productapp.models import product
 from productapp.forms import productform
 from django.urls import reverse, reverse_lazy
@@ -17,7 +18,7 @@ class product_detail(DetailView):
     template_name= 'productapp/detail.html'
     #context_object_name='productdetail'
 
-class add_product(CreateView):
+class add_product(LoginRequiredMixin,CreateView):
     model=product
     template_name='productapp/form.html'
     form_class=productform
@@ -25,12 +26,25 @@ class add_product(CreateView):
     #fields = ['name', 'description', 'count', 'location']
     success_url=reverse_lazy('productapp:list_products')
 
-class update_product(UpdateView):
+    login_url = 'login'# appname:viewname accounts/login
+
+    def form_valid(self, form): #MRO
+        form.instance.user = self.request.user # logged in user
+        return super(RestaurantCreate, self).form_valid(form)
+
+
+class update_product(LoginRequiredMixin,UpdateView):
     model=product
     template_name = 'productapp/update.html'
     form_class = productform
     #productform(request.POST).save(commit=True)
     success_url = reverse_lazy('productapp:list_products')
+
+    login_url = 'login'# appname:viewname accounts/login
+
+    def form_valid(self, form): #MRO
+        form.instance.user = self.request.user # logged in user
+        return super(RestaurantCreate, self).form_valid(form)
 
 
 class delete_product(DeleteView):

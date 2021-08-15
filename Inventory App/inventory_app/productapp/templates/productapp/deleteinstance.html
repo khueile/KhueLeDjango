@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '../productapp_base.html' %}
+{% block title %}Product Delete{% endblock title %}
+
+{% block content %}
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
@@ -16,7 +13,6 @@
 
 
     </form>
-</body>
-</html>
+{% endblock content %}
 
 

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '../productapp_base.html' %}
+
+{% block title %}Product Detail{% endblock title %}
+{% block content %}
     <form method="post" >
 
         {% csrf_token %}
@@ -16,5 +13,4 @@
     </form>
 
 
-</body>
-</html>
+{% endblock content %}
