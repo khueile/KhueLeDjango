@@ -1,4 +1,4 @@
-#!/Users/khuele/Desktop/random2/myvenv/bin/python
+#!/Users/khuele/Desktop/KhueLeDjango/Inventory App/myvenv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
