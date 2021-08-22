@@ -29,4 +29,6 @@ urlpatterns = [
     #path('employee/', include('employee.urls', namespace='products')),
     #path('employee/', employee.as_view()),
     path('employee/', include('employee.urls', namespace='employee')),
+
+
 ]

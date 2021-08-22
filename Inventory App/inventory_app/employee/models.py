@@ -9,6 +9,7 @@ class Employee(models.Model):#ORM established
     Department = models.CharField(max_length=55)
     Salary= models.PositiveIntegerField(default=0)
     date_added = models.DateField(default=datetime.date.today)
+    createdby = models.ForeignKey(User, on_delete=models.CASCADE, default =None)# permissions
 
 
     def __str__(self):
